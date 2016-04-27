@@ -81,6 +81,7 @@
         .page-link {
             display: block;
             padding: 5px 10px;
+            color: #111;
 
             &:not(:last-child) {
                 margin-right: 0;
@@ -178,6 +179,10 @@
       overflow: hidden;
       z-index: -1;
 
+        @include media-query($on-palm) {
+            margin-top: 56px;
+        }
+        
         img {
             position: absolute;
             opacity: 0;
