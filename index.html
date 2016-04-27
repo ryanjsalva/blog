@@ -1,0 +1,46 @@
+---
+layout: default
+cover: "/assets/index-cover.jpg"
+cover-small: "/assets/index-cover-small.jpg"
+---
+
+<div class="home">
+  <div class="posts">
+    <ul class="post-list">
+      {% for post in paginator.posts %}
+        <li>
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <h2>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" data-disqus-identifier="{{ page.id }}">{{ post.title }}</a>
+          </h2>
+          <p>{{ post.excerpt }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+    
+    <!-- Pagination links -->
+    <div class="pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+      {% endif %}
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+      {% endif %}
+    </div>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  </div>
+  
+  <div class="speaking">
+    <h1>Speaking</h1>
+    <ul style="list-style:none; margin:0">
+      <li><a href="http://github.com/ryanjsalva/superfly">DevIntersection 2016</a></li>
+      <li><a href="http://phonegap.com/blog/2016/04/19/pgdayus2016-tools-for-cordova/">PhoneGap Day 2016</a></li>
+      <li><a href="https://channel9.msdn.com/events/Build/2016/B835">Build 2016</a></li>
+      <li><a href="https://youtu.be/53EJcv2chLo?list=PL37ZVnwpeshGpDJn60AwbJ6xegSHe_cDh">JS Conf Asia 2015</a></li>
+      <li><a href="https://channel9.msdn.com/events/FutureDecoded/Future-Decoded-2015-UK/34">Future Decoded UK 2015</a></li>
+      <li><a href="https://channel9.msdn.com/events/Ignite/2015/BRK2704">Ignite 2015</a></li>
+    </ul>
+  </div>
+
+</div>

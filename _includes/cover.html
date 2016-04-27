@@ -1,0 +1,21 @@
+{% if page.cover %}
+    <figure>
+    <div class="cover" data-large="{{ page.cover }}">
+      {% capture jpeg %}{{ page.cover-small }}{% endcapture %}
+      <img class="cover-small" src="{% base64 jpeg %}" />
+    </div>
+  </figure>
+  <script>
+    document.querySelector('.cover-small').classList.add('loaded'); 
+    window.onload = function() {
+      var cover = document.querySelector('.cover');
+      
+      var img = new Image();
+      img.src = cover.dataset.large; 
+      img.onload = function () {
+        img.classList.add('loaded');
+      };
+      cover.appendChild(img);
+    }
+  </script>  
+{% endif %}

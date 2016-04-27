@@ -1,0 +1,22 @@
+---
+layout: default
+title: tags
+cover: /assets/about-cover.jpg
+cover-small: /assets/about-cover-small.jpg
+---
+
+<h1>Tags</h1>
+{% for tag in site.tags %}
+  {% assign t = tag | first %}
+  {% assign posts = tag | last %}
+  <a name="{{ t | downcase }}"></a>
+  <h2>{{ t }}</h2>
+  <ul>
+    {% for post in posts %}
+      {% if post.tags contains t %}
+      <li><span class="date">{{ post.date | date: "%B %-d, %Y"  }}</span>: <a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endfor %}
+
