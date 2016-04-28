@@ -39,6 +39,10 @@
             margin-right: 20px;
         }
     }
+    
+    .trigger a:first-child {
+        display: none;
+    }
 
     @include media-query($on-palm) {
         position: absolute;
@@ -71,6 +75,11 @@
         .trigger {
             clear: both;
             display: none;
+            
+            a:first-child {
+                display: block;
+            }
+
         }
 
         &:hover .trigger {
@@ -82,11 +91,11 @@
             display: block;
             padding: 5px 10px;
             color: #111;
+            margin-left: 20px;
 
             &:not(:last-child) {
                 margin-right: 0;
             }
-            margin-left: 20px;
         }
     }
 }
