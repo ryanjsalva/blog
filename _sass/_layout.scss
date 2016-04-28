@@ -187,6 +187,7 @@
             position: absolute;
             opacity: 0;
             transition: opacity 1s linear;
+            width: 100%;
 
             &.loaded {
             opacity: 1;
@@ -195,7 +196,6 @@
     }
 
     .cover-small {
-      width: 100%;
       -webkit-filter: blur(10px);
       -moz-filter: blur(10px);
       -o-filter: blur(10px);
@@ -220,12 +220,16 @@
     display: flex;
 }
 
-.speaking {
-    width: 220px;
+.posts {
+    width: 100%;
+}
+
+.video {
+    width: 250px;
 }
 
 @include media-query($on-palm) {
-    .home, .speaking {
+    .home, .video {
         width: auto;
         display: block;
     }
@@ -237,6 +241,10 @@
 
     > li {
         margin-bottom: $spacing-unit;
+    }
+    
+    h2 {
+        margin-bottom: 0;
     }
 }
 
