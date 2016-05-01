@@ -28,7 +28,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2 {
-    text-transform: uppercase;
 }
 
 h3, h4, h5, h6 {
@@ -99,13 +98,23 @@ blockquote {
     }
 }
 
+.small {
+    font-size: .8em;
+}
+
+.pull-quote {
+    font-size: 1.2em;
+    color: $brand-color;
+    text-align: center;
+    padding: 20px 30px;
+}
+
 
 
 /*  ------------------------------------------------
     Code formatting
 */
 pre, code {
-    font-size: 15px;
     border: 1px solid $grey-color-light;
     border-radius: 3px;
 }
