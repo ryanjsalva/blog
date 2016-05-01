@@ -16,6 +16,7 @@ twitter_username: ryanjsalva
 github_username:  ryanjsalva
 linkedin_username: ryanjsalva
 paginate: 5
+exclude: [node_modules, package.json, gulpfile.js, README.md]
 
 # Build settings
 markdown: kramdown

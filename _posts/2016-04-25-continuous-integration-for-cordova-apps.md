@@ -25,7 +25,8 @@ Satisfied that code quality is... well, pass-able, you merge to the beta branch 
 
 Confident that your feature is ready for the public, you merge with the release branch which triggers another release. Because your app is built with Cordova, you can update without re-submitting to the app store. Your build server pushes a new release and users get a notification. "Hey, buddy. A new version is available. Update now."
 
-All these steps -- i.e. running unit tests, distributing to beta testers, releasing to the public -- happen automatically when you commit to a branch under watch. Pretty cool, right?
+Running unit tests, distributing to beta testers, releasing bug fixes over-the-air... all these steps happen automatically when you commit to a branch under watch.
+{: .pull-quote }
 
 Over the next four blog posts we'll...
 
