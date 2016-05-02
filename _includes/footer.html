@@ -47,6 +47,36 @@
     }, 3000);
   })();
 
+  // -------------------------------------------
+  // responsive youtube videos
+  
+  var yts = document.querySelectorAll("iframe[src*='youtube']");
+  (function() {
+
+    // exit if no videos are present
+    if (yts.length <= 0) return;
+
+    // Save aspect ratio for each video
+    var i;
+    for (i=0; i < yts.length; i++) {
+      yts[i].setAttribute('data-max-width', yts[i].offsetWidth);
+      yts[i].setAttribute('data-aspect-ratio', yts[i].offsetHeight / yts[i].offsetWidth);
+    }
+
+    // Resize all videos according to their own aspect ratio
+    window.addEventListener('resize', function() {
+      var w, m, r, i;
+      for (i=0;i < yts.length; i++, w=0, m=0, r=0) {
+        w = yts[i].parentElement.offsetWidth;
+        m = Number(yts[i].getAttribute('data-max-width'));
+        r = Number(yts[i].getAttribute('data-aspect-ratio'));
+        if (w > m) w = m;
+        yts[i].setAttribute('width', w);
+        yts[i].setAttribute('height', w * r);
+      }
+    });    
+  })();
+
   
   // -------------------------------------------
   // Google Analytics
