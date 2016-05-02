@@ -284,7 +284,12 @@ From the running app, open the slide-in menu and select "Code Push Update"
 {: .android-device }
 
 TA-DA! Your app will update on restart. 
- 
+
+## Related Posts
+
+* [Part One: Continuous Integration for Cordova Apps](/2016/04/25/continuous-integration-for-cordova-apps.html)
+* [Part Two: Beta Testing with HockeyApp](/2016/04/26/beta-testing-with-hockeyapp.html)
+* [Part Three: Publish without Resubmitting to the App Store](/2016/05/01/publish-without-resubmitting-to-the-app-store.html)
  
 [ci]: /2016/04/25/continuous-integration-for-cordova-apps.html 
 [sample]: http://github.com/ryanjsalva/superfly

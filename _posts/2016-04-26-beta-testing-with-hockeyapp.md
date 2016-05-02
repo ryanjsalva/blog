@@ -132,6 +132,11 @@ After authenticating on your Android device -- and assuming the beta build has c
 
 Once you've had a chance to play with the app and forced a few crashes, go back to the HockeyApp portal. With a few minutes of exploring, you'll find lots of neat features. 
 
+## Related Posts
+
+* [Part One: Continuous Integration for Cordova Apps](/2016/04/25/continuous-integration-for-cordova-apps.html)
+* [Part Two: Beta Testing with HockeyApp](/2016/04/26/beta-testing-with-hockeyapp.html)
+* [Part Three: Publish without Resubmitting to the App Store](/2016/05/01/publish-without-resubmitting-to-the-app-store.html)
 
 [ci]: /2016/04/25/continuous-integration-for-cordova-apps.html 
 [sample]: http://github.com/ryanjsalva/superfly
