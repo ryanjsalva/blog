@@ -1,16 +1,15 @@
 ---
 layout: post
-title:  Maintaining Different Release Configurations
+title:  Maintaining Separate Configs for Dev, Beta and Release Build Targets
 excerpt: Let's say you want to use a different API key during development than in production, but you're in a continuous integration environment where builds come from the same source. Gulp tasks provide an easy way to dynamically change your app configuration during CI.
-tags: cordova ionic devops vsts
+tags: cordova ionic devops vsts git
 cover: /assets/2016-05-07-cover.jpg
 cover-small: /assets/2016-05-07-cover-small.jpg
 ---
 
-**This is part four of a four part series (WOOHOO!!) and assumes you've already set-up continuous integration with our [sample project][sample]. If you haven't already, I highly recommend reading part one, [Continuous Integration for Cordova Apps][pi], where we setup the build server used in this tutorial.**
+**This is part four of a four part series (😆 🎉 👏) and assumes you've already set-up continuous integration with our [sample project][sample]. If you haven't already, I highly recommend reading part one, [Continuous Integration for Cordova Apps][pi], where we setup the build server used in this tutorial.**
 
 ## Change Your App's Configuration Based on Branch
-
 In parts I - III, we used [Visual Studio Team Services (VSTS)][vsts] to setup build definitions for [unit testing][pi], [beta testing][pii] and [over-the-air updates][piii]. All three of our build definitions run using continuous integration on a single branch (i.e. the master branch). Consequently, every time we push a code change, all three of these build definitions run. 
 
 1. **Android-Dev:** runs Karma+Jasmine unit tests to ensure code quality
@@ -196,7 +195,7 @@ git push
 
 When you return to the VSTS portal, you'll find the CI builds waiting in the queue. Double-click on any of the builds to see the build output in real-time. Celebrate with a song in your headphones. I recommend ["The Commander Thinks Aloud" by The Long Winters.][longwinters]
 
-## Related Posts
+## Mobile DevOps: A Four Part Series
 
 * [Part One: Continuous Integration for Cordova Apps][pi]
 * [Part Two: Beta Testing with HockeyApp][pii]

@@ -285,12 +285,13 @@ From the running app, open the slide-in menu and select "Code Push Update"
 
 TA-DA! Your app will update on restart. 
 
-## Related Posts
+## Mobile DevOps: A Four Part Series
 
-* [Part One: Continuous Integration for Cordova Apps](/2016/04/25/continuous-integration-for-cordova-apps.html)
-* [Part Two: Beta Testing with HockeyApp](/2016/04/26/beta-testing-with-hockeyapp.html)
-* [Part Three: Publish without Resubmitting to the App Store](/2016/05/01/publish-without-resubmitting-to-the-app-store.html)
- 
+* [Part One: Continuous Integration for Cordova Apps][pi]
+* [Part Two: Beta Testing with HockeyApp][pii]
+* [Part Three: Publish without Resubmitting to the App Store][piii]
+* [Part Four: Maintaining Different Release Configurations][piv]
+
 [ci]: /2016/04/25/continuous-integration-for-cordova-apps.html 
 [sample]: http://github.com/ryanjsalva/superfly
 [cordova]: http://cordova.apache.org
@@ -304,3 +305,7 @@ TA-DA! Your app will update on restart.
 [docs]: https://microsoft.github.io/code-push/docs/getting-started.html
 [parttwo]: /2016/04/26/beta-testing-with-hockeyapp.html
 [semver]: http://semver.org/
+[pi]: /2016/04/25/continuous-integration-for-cordova-apps.html
+[pii]: /2016/04/26/beta-testing-with-hockeyapp.html
+[piii]: /2016/05/01/publish-without-resubmitting-to-the-app-store.html
+[piv]: /2016/05/07/maintaining-different-release-configurations.html

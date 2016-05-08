@@ -132,11 +132,12 @@ After authenticating on your Android device -- and assuming the beta build has c
 
 Once you've had a chance to play with the app and forced a few crashes, go back to the HockeyApp portal. With a few minutes of exploring, you'll find lots of neat features. Listen to a song in your headphones while exploring, I recommend ["March of the Nucleotides by Bit Shifter."][bitshifter]
 
-## Related Posts
+## Mobile DevOps: A Four Part Series
 
-* [Part One: Continuous Integration for Cordova Apps](/2016/04/25/continuous-integration-for-cordova-apps.html)
-* [Part Two: Beta Testing with HockeyApp](/2016/04/26/beta-testing-with-hockeyapp.html)
-* [Part Three: Publish without Resubmitting to the App Store](/2016/05/01/publish-without-resubmitting-to-the-app-store.html)
+* [Part One: Continuous Integration for Cordova Apps][pi]
+* [Part Two: Beta Testing with HockeyApp][pii]
+* [Part Three: Publish without Resubmitting to the App Store][piii]
+* [Part Four: Maintaining Different Release Configurations][piv]
 
 [ci]: /2016/04/25/continuous-integration-for-cordova-apps.html 
 [sample]: http://github.com/ryanjsalva/superfly
@@ -148,3 +149,7 @@ Once you've had a chance to play with the app and forced a few crashes, go back 
 [hockey]: https://hockeyapp.net
 [codepush]: http://codepush.tools
 [bitshifter]: https://soundcloud.com/bit-shifter/march-of-the-nucleotides-mrna
+[pi]: /2016/04/25/continuous-integration-for-cordova-apps.html
+[pii]: /2016/04/26/beta-testing-with-hockeyapp.html
+[piii]: /2016/05/01/publish-without-resubmitting-to-the-app-store.html
+[piv]: /2016/05/07/maintaining-different-release-configurations.html

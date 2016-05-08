@@ -139,11 +139,12 @@ You can see your build spool by clicking **Builds**, then navigating to the **Qu
 
 When it's all done, you should see a build progress report declaring success. Celebrate with another song in your headphones. I recommend ["I Don't Want to Get Over You" by the Magnetic Fields.][magnetic]
 
-## Related Posts
+## Mobile DevOps: A Four Part Series
 
-* [Part One: Continuous Integration for Cordova Apps](/2016/04/25/continuous-integration-for-cordova-apps.html)
-* [Part Two: Beta Testing with HockeyApp](/2016/04/26/beta-testing-with-hockeyapp.html)
-* [Part Three: Publish without Resubmitting to the App Store](/2016/05/01/publish-without-resubmitting-to-the-app-store.html)
+* [Part One: Continuous Integration for Cordova Apps][pi]
+* [Part Two: Beta Testing with HockeyApp][pii]
+* [Part Three: Publish without Resubmitting to the App Store][piii]
+* [Part Four: Maintaining Different Release Configurations][piv]
 
 [nvm]: https://nvm.sh
 [node]: https://nodejs.org/ 
@@ -160,3 +161,7 @@ When it's all done, you should see a build progress report declaring success. Ce
 [phantom]: https://phantomjs.org/
 [gulp]: https://gulpjs.com
 [magnetic]: https://www.youtube.com/watch?v=WVEhNHIzJec
+[pi]: /2016/04/25/continuous-integration-for-cordova-apps.html
+[pii]: /2016/04/26/beta-testing-with-hockeyapp.html
+[piii]: /2016/05/01/publish-without-resubmitting-to-the-app-store.html
+[piv]: /2016/05/07/maintaining-different-release-configurations.html
