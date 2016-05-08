@@ -19,6 +19,8 @@ In parts I - III, we used [Visual Studio Team Services (VSTS)][vsts] to setup bu
 
 Frankly, this is bad. We don't want to distribute a beta release every time there's a feature check-in and we sure as hell don't want to release in-development features to the public. To control what happens at check-in, we need a branching strategy. We need to run a different set of build steps depending on which branch receives the commit.
 
+![Cascading code flow and releases](/assets/2016-05-07-code-flow.png)
+
 ### Two Big Advantages
 
 By creating a unique branch for each release type, we gain two big advantages.
@@ -65,7 +67,7 @@ Right now, all three branches are a carbon copy of the master branch. Each branc
 
 
 ### Each branch gets a custom config.xml
-In a "normal" local development environment, Cordova build depends on a **config.xml** file in the root directory to define things like icons, splash screens and the App ID. To support different configurations for each branch, I've created a special **/config** folder with xml files for each release type (i.e. dev, beta and release). Let's compare a few lines from **dev.xml** and **beta.xml** to see what's different:
+In a "normal" local development environment, Cordova build depends on a **config.xml** file in the root directory to define things like icons, splash screens and the App ID. To support different configurations for each branch, I've created a special **/config** folder with XML and JS files for each release type (i.e. dev, beta and release). Let's compare a few lines from **dev.xml** and **beta.xml** to see what's different:
 
 #### Switching the Code Push Deployment Key
 This code snippet from **/config/dev.xml** shows where we declare the Code Push deployment key.
@@ -91,7 +93,7 @@ This code snippet from **/config/dev.xml** shows where we declare the Code Push 
 {% endhighlight %}
 
 ### Each branch gets a custom Gulp task
-Our release-specific config.xml files are defined, but we still need to move them to a place where Cordova can find them at build time. To move the config files dynamically, we'll create a gulp task that VSTS can run immediately before Cordova build. Each gulp task will rename the config files and copy them to the root directory. So, for example, `gulp release` will:
+Our release-specific config files are defined in code, but we still need to move them to a place where Cordova can find them at build time during CI. To move the config files dynamically, we'll create a gulp task that VSTS can run immediately before Cordova build. Each gulp task will rename the config files and copy them to the appropriate directory. So, for example, `gulp release` will:
 
 1. Rename release.xml to config.xml and move it to the project root
 2. Rename release.js to config.js and move it to /www/js/
@@ -133,7 +135,7 @@ gulp.task('dev', function() {
 });
 {% endhighlight %}
 
-You can use the same technique to customize anything in response to a build definition. And as you might have guessed, the technique isn't limited to XML. In fact, our [sample app][sample] also includes JS configuration files that I'm using to change run-time variables. Things you might do:
+You can use the same technique to customize anything in response to a build definition. And as you might have guessed, the technique isn't limited to XML and JS. You can do all sorts of things:
 
 1. Change your app icon and splash screen to display a "beta" badge only in the beta release
 2. Use a different API key for services like maps, analytics, data sync, etc. in production
