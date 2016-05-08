@@ -121,6 +121,7 @@ pre, code {
 
 code {
     padding: 1px 5px;
+    background: #cce2f0;
 }
 
 pre {
@@ -129,6 +130,8 @@ pre {
 
     > code {
         border: 0;
+        background: none;
+        border-radius: 0;
         padding-right: 0;
         padding-left: 0;
     }

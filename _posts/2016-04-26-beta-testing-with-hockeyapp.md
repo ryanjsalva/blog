@@ -130,7 +130,7 @@ After authenticating on your Android device -- and assuming the beta build has c
 1. **Fake Crash** will force the mobile app to crash so you have a chance to explore HockeyApp's crash analytics
 2. **Send Feedback** allows beta testers to submit feedback to the development team directly through the app. Don't forget to try attaching a picture (e.g. a screenshot) where you can annotate with crude finger drawings.
 
-Once you've had a chance to play with the app and forced a few crashes, go back to the HockeyApp portal. With a few minutes of exploring, you'll find lots of neat features. 
+Once you've had a chance to play with the app and forced a few crashes, go back to the HockeyApp portal. With a few minutes of exploring, you'll find lots of neat features. Listen to a song in your headphones while exploring, I recommend ["March of the Nucleotides by Bit Shifter."][bitshifter]
 
 ## Related Posts
 
@@ -147,3 +147,4 @@ Once you've had a chance to play with the app and forced a few crashes, go back 
 [googlebeta]: http://developer.android.com/distribute/engage/beta.html
 [hockey]: https://hockeyapp.net
 [codepush]: http://codepush.tools
+[bitshifter]: https://soundcloud.com/bit-shifter/march-of-the-nucleotides-mrna
