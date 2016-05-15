@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Building the Ideal Dev Environment for Cordova
+title:  Build the Ideal Cordova Dev Environment
 excerpt: Laptops are very personal, very private things. As the days and months pass by, little piles of messes accrue in the file system that are uniquely our own. At the same time, a developer’s laptop is also finely tuned for productivity. 
 tags: cordova node nvm npm bash android ios windows xcode visualstudio vscode 
 cover: /assets/2016-05-15-cover.jpg

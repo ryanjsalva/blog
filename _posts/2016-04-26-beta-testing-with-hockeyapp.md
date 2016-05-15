@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Beta Testing with HockeyApp
+title:  Beta Test with HockeyApp
 excerpt: Today, we'll learn how to distribute our app to beta testers, collect crash analytics and collect user feedback through an in-app form. Part 2 of a 4 part series.
 tags: cordova ionic devops hockeyapp
 cover: /assets/2016-04-26-cover.jpg
