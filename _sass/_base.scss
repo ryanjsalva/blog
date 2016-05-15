@@ -58,19 +58,6 @@ li {
     }
 }
 
-table {
-    width: 100%;
-}
-
-table tr:nth-child(odd) {
-    background-color: #dedede;
-}
-
-th {
-    font-family: $headline-font-family;
-    background: $grey-color;
-}
-
 a {
     color: $brand-color;
     text-decoration: none;
@@ -86,12 +73,11 @@ a {
 }
 
 blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
+    color: lighten($text-color, 40%);
+    border-left: 4px solid $brand-color;
     padding-left: $spacing-unit / 2;
     font-size: 18px;
     letter-spacing: -1px;
-    font-style: italic;
 
     > :last-child {
         margin-bottom: 0;
@@ -189,4 +175,27 @@ pre {
             fill: $grey-color;
         }
     }
+}
+
+
+/*  ------------------------------------------------
+    Responsive Tables
+*/
+
+table {
+    min-width: 70%;
+    margin: 0 auto ($spacing-unit / 2) auto;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #dedede;
+}
+
+th {
+    border-bottom: 3px solid $brand-color;
+}
+
+th, td {
+    font-size: .8em;
+    padding: 0 3px;
 }

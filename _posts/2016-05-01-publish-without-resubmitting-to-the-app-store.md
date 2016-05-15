@@ -281,7 +281,7 @@ cordova run android --device
 From the running app, open the slide-in menu and select "Code Push Update"
 
 ![App running on Android](/assets/2016-05-01-app.png)
-{: .android-device }
+{: .android-device.shadow }
 
 TA-DA! Your app will update on restart. 
 

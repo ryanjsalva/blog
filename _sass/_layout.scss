@@ -219,6 +219,7 @@
 .page-content {
     padding: $spacing-unit 0;
     background: $background-color;
+    overflow: hidden;
 }
 
 .page-heading {
@@ -315,9 +316,12 @@
 }
 
 .android-device {
+}
+
+.shadow {
     max-width: 50%; 
     margin: 30px auto;
     -webkit-box-shadow: 0px 10px 52px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 10px 52px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 10px 52px 0px rgba(0,0,0,0.75);    
+    box-shadow: 0px 10px 52px 0px rgba(0,0,0,0.75);
 }

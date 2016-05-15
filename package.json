@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "Personal blog of Ryan J. Salva",
   "main": "gulpfile.js",
-  "dependencies": { },
+  "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-changed": "^1.3.0",
+    "gulp-clean-css": "^2.0.7",
     "gulp-image-resize": "^0.8.0",
+    "gulp-minify": "0.0.11",
     "gulp-rename": "^1.2.2"
   },
   "scripts": {
