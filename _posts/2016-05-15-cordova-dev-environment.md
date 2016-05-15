@@ -1,15 +1,15 @@
 ---
 layout: post
-title:  The Ideal Dev Environment for Cordova
+title:  Building the Ideal Dev Environment for Cordova
 excerpt: Laptops are very personal, very private things. As the days and months pass by, little piles of messes accrue in the file system that are uniquely our own. At the same time, a developer’s laptop is also finely tuned for productivity. 
-tags: cordova ionic devops vsts
+tags: cordova node nvm npm bash android ios windows xcode visualstudio vscode 
 cover: /assets/2016-05-15-cover.jpg
 cover-small: /assets/2016-05-15-cover-small.jpg
 ---
 
 Laptops are very personal, very private things. As the days and months pass by, little piles of messes accrue in the file system that are uniquely our own. At the same time, a developer's laptop is also finely tuned for productivity. As someone who has developed quite a few mobile apps using [Apache Cordova][cordova], I thought it might be fun to share some of the optimizations I've made to my laptop for Cordova development. 
 
-I haven't found the best dev environment yet -- *I'm always tweaking things* -- but it's a beautiful mess. This post describes how to build a good dev environment for cross-platform development targeting iOS, Android and Windows.
+I haven't found the ideal dev environment yet -- *I'm always tweaking things* -- but it's a beautiful mess. This post describes how to build a good dev environment for cross-platform development targeting iOS, Android and Windows.
 
 1. [Hardware](#hardware)
 2. [Node Version Manager (NVM)](#nvm)
@@ -84,7 +84,7 @@ nvm install v4.4.4
 nvm alias default v4.4.4
 {% endhighlight %}
 
-I recommend using the last stable version of Node for Cordova development. Remember that even (as opposed to odd) version numbers are officially ["Long Term Supported."][lts]
+I recommend using the last stable version of Node for Cordova development. Remember that even (as opposed to odd) version numbers are officially stable and ["Long Term Supported."][lts]
 
 <a name="global"></a>
 
@@ -121,6 +121,8 @@ I use [VS Code][code] as my primary editor. It's based on Atom, but don't be foo
 * Git integration
 * Built-in debugger
 * Wicked good intellisense and code refactoring features
+
+![Debugging in VS Code](/assets/2016-05-15-vs-code.png)
 
 To the default installation, I add the following extensions:
 	
@@ -268,7 +270,7 @@ alias localip="ipconfig getifaddr en0"
 {% endhighlight %}
 
 ### .bash_prompt
-This prompt makes me happy. 😝 It does four things:
+This prompt makes me happy. 😸 It does four things:
 	
 1. Adds color
 2. Identifies the current version of Node (super-important when using NVM)
@@ -331,7 +333,7 @@ Google's Android emulator doesn't come with any pre-configured devices, so you h
 | SD Card | ? | ? |
 | Emulation Options | ? | ? |		
 
-Once your done configuring, you can go back to the terminal and launch your emulator with:
+Once you're done configuring, you can go back to the terminal and launch your emulator with:
 
 {% highlight bash %}
 # start the emulator
@@ -356,18 +358,15 @@ Observe that the emulator... well, it's not *fast*, but it's not horrifically sl
 <a name="parallels"></a>
 
 ## Configuring Parallels
-Once you've setup your Mac, the hard part is over. Windows is suprisingly easy to install and configure.
+Once you've setup your Mac, the hard part is over. Windows is surprisingly easy to install and configure. When setting up your Windows virtual machine, Parallels will give you the option to optimize for "Software Development." 
 
 ![Optimize Windows 10 for Software Development](/assets/2016-05-15-software-development.png)
 
-
-When setting up your Windows virtual machine, Parallels will give you the option to optimize for "Software Development." While you can preserve many of the defaults for this preset, you may want to make a few tweaks. 
-
-I'm not going to provide an exhaustive list of every setting since many merely depend on personal preference, but I'll highlight a few of the important ones:
+While you can preserve many of the defaults for this preset, you may want to make a few tweaks. I'm not going to provide an exhaustive list of every setting since many merely depend on personal preference, but I'll highlight a few of the important ones:
 
 | Tab | Category | Name | Value | Why |
 | --- | --- | --- | --- | --- |
-| Options | Optimization | Performance | Faster virtual machine | Your VM will always be the process starved for rosources |
+| Options | Optimization | Performance | Faster virtual machine | Your VM will always be the process starved for resources |
 | Options  | Optimization | Enable Hypervisor | Checked | Speeds up emulators running inside the VM |
 | Options | Optimization  | Tune Windows for Speed | Checked | Speed is more important than fancy animations |
 | Options | Full Screen | Use OS X Full Screen | Checked | It took me a while to figure out how to get the resolution right, so I'm including it here. |
@@ -392,7 +391,7 @@ I'm not going to provide an exhaustive list of every setting since many merely d
 <a name="vs"></a>
 
 ## Visual Studio
-Once you've got Windows 10 up-and-running, you'll want to install Visual Studio which includes all the build tools for Windows Universal Apps. [Visual Studio 2015 Community Edition][vs] is "free for individual developers, open source projects, academic research, training, education, and small professional teams." It also includes the Tools for Apache Cordova (a.k.a. "TACO"). Full Disclosure: I'm the product manager for TACO, so… yah, they're kinda awesome.
+Once you've got Windows 10 up-and-running, you'll want to install Visual Studio which includes all the build tools for Windows Universal Apps. [Visual Studio 2015 Community Edition][vs] is "free for individual developers, open source projects, academic research, training, education, and small professional teams." It also includes the [Tools for Apache Cordova (a.k.a. "TACO")][taco]. Full Disclosure: I'm the product manager for TACO, so… yah, they're kinda awesome.
 
 ![Visual Studio 2015 Setup](/assets/2016-05-15-vs-setup.png)
 {: .android-device.shadow }
@@ -400,7 +399,7 @@ Once you've got Windows 10 up-and-running, you'll want to install Visual Studio 
 "Free for individual developers, open source projects, academic research, training, education, and small professional teams."
 {: .pull-quote }
 
-To install TACO, select it from the optional components during VS setup. 
+To install TACO, select it from the optional components during VS setup. If you already have Visual Studio installed, you can add TACO by going to "Change or Remove Programs" in the Control Panel, right-clicking on Visual Studio and selecting "Change."
 
 Visual Studio will install all the Windows and Android SDK build tools in your Parallels instance, so all the setup work you had to do on the Mac… it's not necessary for Windows. 
 
@@ -410,6 +409,10 @@ Visual Studio will install all the Windows and Android SDK build tools in your P
 Code on your Mac should be accessible to Windows and vice versa so long as Parallels is running. You can build from the command line or use Visual Studio's built-in F5 launcher. If you want to build from Visual Studio, but deploy to an iOS simulator or device, you'll need to setup a remote build agent. 
 
 In essence, the remote build agent is a light-weight node server that runs on your Mac and listens for builds from Visual Studio. When it receives a build request, it marshalls the request to Xcode. Upon finishing the build, it can either return the IPA to Visual Studio or deploy it to a Simulator/Device.
+
+### Celebrate
+You've reached the end of another long blog post. Celebrate your victory with another song in the playlist. I recommend selecting a classic from the archives, ["F**k and Run" by Liz Phair.][fuck] 
+
 
 [cordova]: http://cordova.apache.org/
 [parallels]: http://www.parallels.com/
@@ -445,3 +448,4 @@ In essence, the remote build agent is a light-weight node server that runs on yo
 [taco]: http://taco.visualstudio.com
 [code]: http://code.visualstudio.com
 [haxm]: https://software.intel.com/en-us/android/articles/intel-hardware-accelerated-execution-manager
+[fuck]: https://www.youtube.com/watch?v=WzVLD6J_O8E
