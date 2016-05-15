@@ -21,11 +21,11 @@ To understand how updates work, it's helpful to get a high-level overview of the
 
 1. The first time you publish, you submit the __full app__ including both compiled code and web assets to the app store. 
 
-2. When you want to publish an update, you zip up your web assets (no compiled code) and publish them to the Code-Push cloud service. 
+2. When you want to publish an update, you zip up your web assets (no compiled code) and publish them to the Code-Push cloud service. We’ll talk about different service providers in a moment.
 
 3. On some event (e.g. deviceready, resume, button click), each mobile device checks the Code-Push cloud service for an update. 
 
-4. If an update is availabe, each mobile device downloads the update and replaces the contents of **/www** with your new code.
+4. If an update is available, each mobile device downloads the update and replaces the contents of **/www** with your new code.
 
 <div style="text-align:center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/nsOR4w2Bpuw?color=white&theme=light&loop=1" frameborder="0" allowfullscreen></iframe></div>
 
@@ -40,7 +40,7 @@ Anytime I speak about bypassing the app store, someone invariably asks if this w
 There are a number of plugins & services that make over-the-air updates possible. Cordova developers can choose between [PhoneGap Hydration][hydrate], [Ionic Deploy][deploy] and [Code Push][codepush]. Code Push also happens to be the defacto choice for most ReactNative developers, so our example will use it. 
 
 ## Let's code (push)
-Again, Our tutorial will use the [superfly sample project][sample] and Visual Studio Team Services (VSTS) setup in [part one of this series.][ci] 
+Again, our tutorial will use the [superfly sample project][sample] and Visual Studio Team Services (VSTS) setup in [part one of this series.][ci] 
 
 Like other device capabilities, Code Push has it's own Cordova plugin [(cordova-plugin-code-push)][plugin] which has already been added to our sample project. You can see the reference in config.xml:
 
@@ -61,7 +61,7 @@ code-push register
 
 This second command will open a browser where you should simply follow the registration process. As usual, it's free to use, so don't worry about pulling out the credit card. 💸
 
-### Managing Deployments
+### Manage Deployments
 Once you've registered, go back to the command line where we'll register our first app with the Code Push service.
 
 {% highlight PowerShell %}
@@ -212,7 +212,7 @@ While this looks complicated, it's really quite simple once you break it down.
 The truth is that you could omit items 1-3 and just let Code Push do everything with `window.codePush.sync()`, but it's nice to see what's possible with a fully customized implementation.
 
 ## Automate Deployments with VSTS
-Similar to the steps followed in [part two of this series][parttwo], we're going to clone our pre-existing build definition and add a Code Push build step. Login to VSTS and navigate to the BUILD tab. Right-click on the "Android-Build" definition and select Clone.
+Similar to the steps followed in [part two of this series][parttwo], we're going to clone our pre-existing build definition and add a Code Push build step. Login to VSTS and navigate to the **BUILD** tab. Right-click on the "Android-Build" definition and select **Clone.**
 
 ![Clone build definition](/assets/2016-05-01-clone-build-definition.png)
 

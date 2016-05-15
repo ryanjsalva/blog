@@ -51,7 +51,7 @@ npm install
 2. Cross-platform build automation
 3. Agile team management (e.g. scrum boards, backlogs, bug tracking)
 
-In a lot of ways, you can think of it as the union between GitHub, Atlassian and Jenkins (if you're familiar with those). By combining all three services in the same tool, we can automate a lot of the grunt work. As of this writing, it's free for teams of 6 or less. Once you've logged in, you'll see this page:
+In a lot of ways, you can think of VSTS as the union between GitHub, Atlassian and Jenkins (if you're familiar with those). By combining all three services in the same tool, we can automate a lot of the grunt work. As of this writing, it's free for teams of 6 or less. Once you've logged in, you'll see this page:
 
 ![VSTS New Project](/assets/2016-04-25-vsts-new-project.png)
 

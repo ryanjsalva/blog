@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Maintaining Separate Configs for Dev, Beta and Release Build Targets
+title:  Maintain Separate Configs for Dev, Beta and Release Build Targets
 excerpt: Let's say you want to use a different API key during development than in production, but you're in a continuous integration environment where builds come from the same source. Gulp tasks provide an easy way to dynamically change your app configuration during CI.
 tags: cordova ionic devops vsts git
 cover: /assets/2016-05-07-cover.jpg
@@ -65,10 +65,10 @@ git checkout dev
 Right now, all three branches are a carbon copy of the master branch. Each branch can operate independently, but ideally the code should flow from dev to beta to release. Thus, we start by making all our changes in the dev branch.
 
 
-### Each branch gets a custom config.xml
+### Give each branch a custom config.xml
 In a "normal" local development environment, Cordova build depends on a **config.xml** file in the root directory to define things like icons, splash screens and the App ID. To support different configurations for each branch, I've created a special **/config** folder with XML and JS files for each release type (i.e. dev, beta and release). Let's compare a few lines from **dev.xml** and **beta.xml** to see what's different:
 
-#### Switching the Code Push Deployment Key
+#### Switch the Code Push Deployment Key
 This code snippet from **/config/dev.xml** shows where we declare the Code Push deployment key.
 
 {% highlight XML %}
@@ -91,7 +91,7 @@ This code snippet from **/config/dev.xml** shows where we declare the Code Push 
 </platform>
 {% endhighlight %}
 
-### Each branch gets a custom Gulp task
+### Give each branch a custom Gulp task
 Our release-specific config files are defined in code, but we still need to move them to a place where Cordova can find them at build time during CI. To move the config files dynamically, we'll create a gulp task that VSTS can run immediately before Cordova build. Each gulp task will rename the config files and copy them to the appropriate directory. So, for example, `gulp release` will:
 
 1. Rename release.xml to config.xml and move it to the project root
@@ -142,7 +142,7 @@ You can use the same technique to customize anything in response to a build defi
 
 That wasn't too bad, now was it? Take a break, catch your breath and regroup by playing a song in your headphones. I recommend ["Street Lights for a Ribcage" by Sleepy Eyes of Death.][sleepy]
 
-## Configuring VSTS
+## Configure VSTS
 Our code is setup to dynamically rename and move config.xml using a Gulp task. Now, we need to automate the process using continuous integration in VSTS. For each build definition, we'll add a Gulp build step to move and rename the config files. Then, we'll change the trigger branch and source repository to match the branch. 
 
 Using the same instance of VSTS that you configured in Parts [I][pi], [II][pii] and [III][piii] of this series, login and navigate to the "BUILD" tab where you will edit the "Android-Dev" build definition.

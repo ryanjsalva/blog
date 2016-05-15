@@ -80,7 +80,7 @@ Note that the APP_ID needs to match in three places:
 
 | Location | Value | Why? |
 | --- | --- | --- |
-| /config.xml | `<widget id="APP_ID">` | Authoratative source for APP_ID |
+| /config.xml | `<widget id="APP_ID">` | Authoritative source for APP_ID |
 | /www/js/app.js | `hockeyapp.start(null,null,"APP_ID")` | Establishes app identity when calling into the HockeyApp API |
 | VSTS | HockeyApp build step configuration | I honestly don't know |
 {: .small }
@@ -108,7 +108,7 @@ $scope.checkForUpdate = function() {
 }
 {% endhighlight %}
 
-These methods will be invoked when we click the corresonding menu items in our app's menu bar. As you can see, there's not much to them. The one thing I'd call out is `hockeyapp.addMetaData([json])`. You can invoke this method at any time to record _n_ parameters describing your runtime state. This can be tremendously helpful if you need help debugging you app in the wild. 
+These methods will be invoked when we click the corresponding menu items in our app's menu bar. As you can see, there's not much to them. The one thing I'd call out is `hockeyapp.addMetaData([json])`. You can invoke this method at any time to record _n_ parameters describing your runtime state. This can be tremendously helpful if you need help debugging you app in the wild. 
 
 ### Run that build, you crazy kid
 
