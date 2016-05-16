@@ -32,7 +32,7 @@ If you're targeting iOS, you need a Mac somewhere in the equation. Likewise, if 
 * **Hardware:** 13" MacBook Pro with all the RAM and disk upgrades available. 
 * **Operating Systems:** Mac OSX El Capitan and [Parallels][parallels] running Windows 10.
 
-If it's not an option for you to develop on a Mac, there are plenty of cloud build solutions available (e.g. [PhoneGap Build][phonegap], [MacInCloud][macincloud]), but since this tutorial is focused on building a local development environment, we'll leave that subject for another day.
+If it's not an option for you to develop on a Mac, there are plenty of cloud build solutions available (e.g. [PhoneGap Build][phonegap], [MacInCloud][macincloud], [Mac Stadium][macstadium]), but since this tutorial is focused on building a local development environment, we'll leave that subject for another day.
 
 <a name="library"></a>
 
@@ -140,6 +140,16 @@ To install these extensions, simply invoke the Command Pallette with Command+P (
 > ext install tslint
 {% endhighlight %}
 
+### Edit, Preview and Debug Loop
+Like most developers, the vast majority of my time is spent in a quick, iterative loop where I progressively (1) edit code, (2) refresh the webview, then (3) debug and inspect the result. There are lots of tricks intended to shortcut steps within this loop -- mostly by auto-refreshing the webview on save. 
+
+![Edit, Preview, Debug](/assets/2016-05-15-edit-preview-debug.png)
+{: .center.max-width-50 }
+
+I accomplish this today using either `taco run ios --livereload` or `ionic serve --lab` depending on the circumstances. 
+
+Generally speaking, I use `taco run [platfrom] --livereload` any time I want to deploy to an emulator or device where (a) all the plugins work and (b) fidelity is high. Meanwhile, I reserve `ionic serve --lab` for those situations where I merely want to work quickly on a desktop browser and don't need plugins or perfect simulation. 
+
 <a name="bash_profile"></a>
 
 ## .bash_profile
@@ -151,7 +161,7 @@ The basic strategy is to declare nothing directly in .bash_profile, but instead 
 This file is required to use NVM, but it also adds command completion to your terminal. To see completion in action, type "nvm" in the terminal, then tab to complete partial words or double-tab between words to get a list of all the actions & arguments available.
 
 ![Command completion for NVM](/assets/2016-05-15-nvm-completion.gif)
-{: .shadow }
+{: .center }
 
 {% highlight PowerShell %}
 # export NVM directory
@@ -229,7 +239,7 @@ You'll find many more shortcuts defined in my [GitHub repository][bash], so be s
 This little gem comes from the Apache Cordova project and provides completion for Cordova CLI. Tab to complete partial words or double-tab between words to get a list of all the actions & arguments available.
 
 ![Command completion for Cordova](/assets/2016-05-15-cordova-completion.gif)
-{: .shadow }
+{: .center }
 
 ### .bash_network
 Again, this is for the power user and helps you get information about your local network.
@@ -315,6 +325,8 @@ After you've installed all the API packages, open **~/Library/Android/android-sd
 <a name="emulator"></a>
 
 ## Android Emulator
+Whenever possible, I use a tethered device because they are faster and of higher fidelity. But if I don't have a device handy or need to test on a version of the OS that's not in my device library, then to-the-emulator I go. 
+
 Google's Android emulator doesn't come with any pre-configured devices, so you have to create one first. From the terminal, run `android avd` to open the Android Virtual Device Manager.  Under the "Android Virtual Devices" tab, click "Create" and configure your first device as shown below.
 
 ![Edit Android Virtual Device](/assets/2016-05-15-emulator.png)
@@ -327,7 +339,7 @@ Google's Android emulator doesn't come with any pre-configured devices, so you h
 | CPU/ABI | Google APIs Intel Atom | ? |
 | Keyboard | Checked | ? |
 | Skin | Skin with dynamic hardware controls | You can use the controls to change device orientation, "shake" the device, click the home button, etc. | 
-| Front Camera | Webcam | I prefer to use my laptop's webcam over the Max Headroom floating ball. | 
+| Front Camera | Webcam | I prefer to use my laptop's webcam over the [Max Headroom][max] floating ball. | 
 | Memory Options | RAM: 1024, VM Heap: 32 | ? |	
 | Internal Storage | ? | ? |
 | SD Card | ? | ? |
@@ -337,10 +349,10 @@ Once you're done configuring, you can go back to the terminal and launch your em
 
 {% highlight bash %}
 # start the emulator
-emulator @Nexus-7
+emulator @Nexus-7 &
 {% endhighlight %}
 
-Observe that the emulator... well, it's not *fast*, but it's not horrifically slow because Intel's HAXM is speeding things up:
+The `&` at the end of that command means, "open in the background." Observe that the emulator... well, it's not *fast*, but it's not horrifically slow because Intel's HAXM is speeding things up:
 
 ![Emulator launching with HAXM in the Terminal](/assets/2016-05-15-haxm.png)
 
@@ -394,7 +406,7 @@ While you can preserve many of the defaults for this preset, you may want to mak
 Once you've got Windows 10 up-and-running, you'll want to install Visual Studio which includes all the build tools for Windows Universal Apps. [Visual Studio 2015 Community Edition][vs] is "free for individual developers, open source projects, academic research, training, education, and small professional teams." It also includes the [Tools for Apache Cordova (a.k.a. "TACO")][taco]. Full Disclosure: I'm the product manager for TACO, so… yah, they're kinda awesome.
 
 ![Visual Studio 2015 Setup](/assets/2016-05-15-vs-setup.png)
-{: .android-device.shadow }
+{: .max-width-50.center.shadow }
 
 "Free for individual developers, open source projects, academic research, training, education, and small professional teams."
 {: .pull-quote }
@@ -403,6 +415,13 @@ To install TACO, select it from the optional components during VS setup. If you 
 
 Visual Studio will install all the Windows and Android SDK build tools in your Parallels instance, so all the setup work you had to do on the Mac… it's not necessary for Windows. 
 
+### Local vs. Global 
+By default, VS installs a "sandboxed" version of Node + NPM similar to the one used by NVM on your Mac. As of this writing, Visual Studio installs Node 0.12 and NPM 2.2 because they are universally compatible with all versions of Cordova <=6.x. While I recommend using the sandboxed version, you can use the globally installed versions of Node + NPM by changing the settings in **Tools > Options.** 
+
+![Use the global version of node](/assets/2016-05-15-sandboxed.png)
+{: .max-width-75.center.shadow }
+
+
 <a name="rba"></a>
 
 ## Remote Build Agent
@@ -410,7 +429,15 @@ Code on your Mac should be accessible to Windows and vice versa so long as Paral
 
 In essence, the remote build agent is a light-weight node server that runs on your Mac and listens for builds from Visual Studio. When it receives a build request, it marshalls the request to Xcode. Upon finishing the build, it can either return the IPA to Visual Studio or deploy it to a Simulator/Device.
 
-### Celebrate
+## Share with Others
+This isn't entirely relevant to setting up a local development environment, but if you ever need to share your screen with others (e.g. during a virtual meeting or while presenting on-stage), then there are two other essential tools.
+
+1. [Vysor.io][vysor] screencasts your tethered Android device
+2. [Quicktime][quicktime] screencasts your tethered iOS device
+
+
+
+### Celebrate! 🎉
 You've reached the end of another long blog post. Celebrate your victory with another song in the playlist. I recommend selecting a classic from the archives, ["F**k and Run" by Liz Phair.][fuck] 
 
 
@@ -418,6 +445,7 @@ You've reached the end of another long blog post. Celebrate your victory with an
 [parallels]: http://www.parallels.com/
 [phonegap]: https://build.phonegap.com/
 [macincloud]: http://www.macincloud.com/
+[macstadium]: http://www.macstadium.com
 [explosion]: https://blog.explosionpills.com/dont-use-sudo-with-npm/
 [nvm]: http://nvm.sh
 [lts]: https://github.com/nodejs/LTS
@@ -438,6 +466,7 @@ You've reached the end of another long blog post. Celebrate your victory with an
 [bash]: http://github.com/ryanjsalva/bash
 [androidsdk]: http://developer.android.com/sdk/index.html#downloads
 [genymotion]: https://www.genymotion.com/pricing-and-licensing/
+[xcode]: https://developer.apple.com/xcode/downloads/
 [max]: https://www.google.com/search?q=max%20headroom&rct=j
 [photoshop]: http://www.adobe.com/photoshop
 [illustrator]: http://www.adobe.com/illustrator
@@ -448,4 +477,6 @@ You've reached the end of another long blog post. Celebrate your victory with an
 [taco]: http://taco.visualstudio.com
 [code]: http://code.visualstudio.com
 [haxm]: https://software.intel.com/en-us/android/articles/intel-hardware-accelerated-execution-manager
+[vysor]: http://www.vysor.io/
+[quicktime]: https://www.google.com/webhp?q=screencast+iphone+with+quicktime
 [fuck]: https://www.youtube.com/watch?v=WzVLD6J_O8E
