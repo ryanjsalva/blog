@@ -89,12 +89,13 @@ I recommend using the last stable version of Node for Cordova development. Remem
 <a name="global"></a>
 
 ## Globally Installed NPM Packages
-When building a new machine, there are a few global packages that I always install immediately:
+When building a new machine, there are a few utilities that I expect to use in (almost) every project. Rather than install a duplicate instance in each project directory, I prefer to install these npm packages globally:
 
 | Package Name | Why? |
 | --- | --- |
 | [cordova][cordova] | This is a Cordova development environment, right? Required. |
 | [ionic][ionic] | Ionic delivers silky smooth, good-looking UI and provides a good starting point for most projects. |
+| [taco-cli][taco-cli] | TACO provides an array of utilities for Cordova development, including `--livereload` which auto-refeshes the webview on save for browsers, emulators and devices |
 | [code-push-CLI][codepush] | Code Push is my preferred service for publishing updates without re-submitting  to the app store. |
 | [typescript][typescript] | TypeScript provides a much better code editing experience than JavaScript alone with auto-complete, code refactoring and access to future JS features (e.g. decorators) that aren't available in ES6 today. It's also recommended by the teams building Ionic and Angular. |
 | [eslint][eslint] | Eslint will help you enforce a sensible coding style guide without being a jerk about it. |
@@ -435,8 +436,6 @@ This isn't entirely relevant to setting up a local development environment, but 
 1. [Vysor.io][vysor] screencasts your tethered Android device
 2. [Quicktime][quicktime] screencasts your tethered iOS device
 
-
-
 ### Celebrate! 🎉
 You've reached the end of another long blog post. Celebrate your victory with another song in the playlist. I recommend selecting a classic from the archives, ["F**k and Run" by Liz Phair.][fuck] 
 
@@ -456,6 +455,7 @@ You've reached the end of another long blog post. Celebrate your victory with an
 [eslint-plugin]: https://www.npmjs.com/package/eslint-plugin-standard
 [git]: https://www.npmjs.com/package/git
 [gulp]: https://www.npmjs.com/package/gulp
+[taco-cli]: https://www.npmjs.com/package/taco-cli
 [ios-deploy]: https://www.npmjs.com/package/ios-deploy
 [ios-sim]: https://www.npmjs.com/package/ios-sim
 [remotebuild]: https://www.npmjs.com/package/remotebuild
